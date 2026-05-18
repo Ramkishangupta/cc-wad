@@ -3,6 +3,7 @@
 ## Commands
 
 ```bash
+npm i @angular/cli
 ng new ass3
 cd ass3
 ng generate component register

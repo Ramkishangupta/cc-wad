@@ -1,9 +1,16 @@
-const express = require('express');
-
+const express = require("express");
+const mongoose = require("mongoose");
+const userRoutes=require('./routes/userRoutes')
 const app = express();
+app.use(express.json());
+app.use('/',userRoutes);
 
-app.use(express.static('public'));
 
-app.listen(3000,()=>{
-    console.log("Server is running on http://localhost:3000");
-})
+mongoose
+  .connect("mongodb://localhost:27017/crud")
+  .then(() =>
+    console.log("mongoose connected")
+  ).catch((err) => console.log(err));
+
+  app.listen(4000,()=>console.log('server running at http://localhost:4000')
+  )
